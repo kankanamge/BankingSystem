@@ -15,10 +15,9 @@ public class Bank {
    private LinkedHashMap<Long, Account> accounts;
    
    public Bank() {
-   
    }
    private Account getAccount(Long accountNumber) {
-      return null;
+      return this.accounts.get(accountNumber);
    }
    
    public Long openCommercialAccount(Company company, int pin, double startingDeposit) {

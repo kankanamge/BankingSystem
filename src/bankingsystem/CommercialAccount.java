@@ -9,16 +9,19 @@ package bankingsystem;
  *
  * @author skanlk
  */
-public class CommercialAccount {
+public class CommercialAccount extends Account {
    private Person authorizedUsers;
    
-   public void CommercialAccount(Company company, long accountNumber, int pin, double startingDeposit) {
-      
+   public CommercialAccount(Company company, long accountNumber, int pin, double startingDeposit) {
+      super(company, accountNumber, pin, startingDeposit);
    }
+
    protected  void addAuthorizedUser(Person person) {
+      this.authorizedUsers = new Person(person.getFirstName(), person.getLastName(), person.getIdNumber());
    }
+
    public boolean isAuthorizesUser(Person person) {
-      return true;
+      return this.authorizedUsers.getIdNumber() == person.getIdNumber();
    }
 }  
 

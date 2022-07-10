@@ -9,9 +9,10 @@ package bankingsystem;
  *
  * @author skanlk
  */
-public class ConsumerAcount {
+public class ConsumerAcount extends Account{
    
-   public void ConsumerAccount(Person person, long accountNumber, int pin, double currentBalance) {
+   public ConsumerAcount(Person person, long accountNumber, int pin, double currentBalance) {
+      super(person, accountNumber, pin, currentBalance);
    }
    
 }

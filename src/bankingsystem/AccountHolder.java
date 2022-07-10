@@ -9,14 +9,15 @@ package bankingsystem;
  *
  * @author skanlk
  */
-public class AccountHolder {
+public abstract class AccountHolder {
    private int idNumber;
    
-   public void AccountHolder(int idNumber) {
+   public AccountHolder(int idNumber) {
+      this.idNumber = idNumber;
    }
    
    public int getIdNumber() {
-      return 0;
+      return idNumber;
    }
    
 }

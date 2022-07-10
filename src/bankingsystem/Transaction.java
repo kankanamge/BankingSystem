@@ -9,23 +9,29 @@ package bankingsystem;
  *
  * @author skanlk
  */
-public class Transaction {
+public class Transaction implements TransactionInterface {
    private Long accountNumber;
    private Bank bank;
    
-   public Trasaction(int Bank, Long accountNumber, int attemptedPin) {
-      
+   public Trasaction(Bank bank, Long accountNumber, int attemptedPin) {
+      this.bank = bank;
+      this.accountNumber = accountNumber;
+      this.bank.getAccount(accountNumber);   
    }
    
+   @Override
    public double getBalance() {
-      return 0.0;
+      return this.bank.getBalance(this.accountNumber);
    }
    
+   @Override
    public void credit(double amount) {
+      this.bank.credit(this.accountNumber, amount);
    }
    
+   @Override
    public boolean debit(double amount){
-      return true;
+      return this.bank.debit(this.accountNumber, amount);
    }
    
 }
